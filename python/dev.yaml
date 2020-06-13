@@ -1,0 +1,17 @@
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - flake8 # for the `make lint` target to run
+  - nbsphinx # used for sphinx docs
+  - pylint # for the `make lint` target to run
+  - pytest # for all `make test*` targets to run
+  - pytest-cov # for all `make test*` targets to run
+  - hypothesis # for testing framework
+  - python=3.7
+  - recommonmark # used for sphinx docs
+  - sphinx # used for sphinx docs
+  - pip
+  - pip:
+      - sphinx_rtd_theme # this is the only dependency we'll install from pip

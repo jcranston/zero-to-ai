@@ -1,0 +1,25 @@
+# Testing
+.hypothesis
+.coverage*
+coverage_html_report
+
+# Notebooks
+*.ipynb
+
+# Python
+__pycache__/
+.ipynb_checkpoints/
+.eggs/
+.pytest_cache/
+*.egg-info/
+
+# Sphinx
+docs/_build/
+docs/_apidoc/
+
+# Editor
+.idea
+/tags
+
+# Mac junk
+.DS_Store
