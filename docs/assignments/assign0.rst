@@ -2,7 +2,7 @@ Assignment 0: Welcome to Python!
 ================================
 
 Background
-~~~~~~~~~~
+----------
 
 Welcome to Python! Woohoo! This is where things get fun, now that you are set
 up with git, conda, basic Unix navigation skills, and your IDE/text editor.
@@ -62,7 +62,7 @@ In our last test, we explicitly direct how we want our implementation of
 our test that we expect ``find_max`` to return ``None``.
 
 Requirements
-~~~~~~~~~~~~
+------------
 
 Your task is as follows:
 
@@ -134,8 +134,8 @@ implement the methods in the corresponding classes in ``utils.py``.
 
 3. Submit your code in a branch to the remote git repository for code review.
 
-Learning Goals for Assignment 0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Learning Goals
+--------------
 
 Here is what we are trying to have you take away from Assignment 0:
 
@@ -148,8 +148,32 @@ Here is what we are trying to have you take away from Assignment 0:
 - More familiarity with your operating system, Unix commands, and text editor.
 
 
-Resources for Assignment 0
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Mathematical Resources
+----------------------
+
+Frobenius Norm of the Matrix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Given a matrix :math:`A\in\mathbb{R}^{n\times k}`, the Frobenius Norm of the
+matrix is defined as
+
+.. math::
+
+    \|A\|_\text{Fro}=\left(\sum_{i=1}^{n}\sum_{j=1}^{k} |A_{ij}|^2\right)^{1/2}
+
+:math:`A_{ij}` corresponds to the :math:`(i,j)^\text{th}` element of the
+matrix, meaning the element at row :math:`i` and column :math:`j`.
+
+This is a consise way of summing the squares of each element in the matrix and
+then taking the square root. Sort of like finding the hypotenuse lenghth of a
+triangle in a higher dimension, if each side of the triangle was an element of
+the matrix.
+
+Your task will be to implement computing the Frobenius Norm in Python.
+
+
+Web Resources
+~~~~~~~~~~~~~
 
 - `Learn Python in Y minutes: a very gentle introduction: <https://learnxinyminutes.com/docs/python/>`_
 - `*Fantastic* YouTube series from 3Blue1Brown that gently introduces linear algebra <https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab>`_ (Grant was one year ahead of me at Stanford)

@@ -95,6 +95,7 @@ html_theme_options = {
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ZeroToAI_doc'
 # -- Options for LaTeX output ------------------------------------------------
+latex_engine = 'pdflatex'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
@@ -108,6 +109,7 @@ latex_elements = {
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
+    'preamble': r'\makeatletter\input{mystyle.tex}\makeatother'
 }
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
