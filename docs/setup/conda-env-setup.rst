@@ -108,7 +108,7 @@ follow, but perhaps read through them both).
 
         pwd # should end in your zero-to-ai directory
         cd python # change to the python directory within zero-to-ai
-        conda env --file dev.yaml --name ai
+        conda env create --file dev.yaml --name ai
 
     b. The last command creates a conda environment called ``ai`` (specified by
        the ``--name`` tag). Furthermore, it reads all the dependencies that it
