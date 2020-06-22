@@ -1,8 +1,8 @@
-Assignment 0: Welcome to Python!
+Assignment 1: Welcome to Python!
 ================================
 
-Background
-----------
+Background for `assign1`
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Welcome to Python! Woohoo! This is where things get fun, now that you are set
 up with git, conda, basic Unix navigation skills, and your IDE/text editor.
@@ -71,7 +71,7 @@ series. Linear algebra is going to lay the foundation for algorithms in AI. The
 content of the Python methods will be related to linear algebra in this
 assignment.
 
-2. Boot up either the interactive python interpreter by issuing simply::
+2. Boot up either the interactive Python interpreter by issuing simply::
 
     python
 
@@ -81,7 +81,7 @@ assignment.
 
 to play around with defining variables and types. Once you are in either
 command prompt, follow along with `Learn Python in Y minutes <https://learnxinyminutes.com/docs/python/>`_
-and enter the same variables in your python interpreter. Alternately, you can
+and enter the same variables in your Python interpreter. Alternately, you can
 practice writing in your text editor of choice and writing a file that contains
 the same content (so you can practice keystrokes in your text editor). If you
 chose to use an interpreter to practice, copy and paste the interpreter output

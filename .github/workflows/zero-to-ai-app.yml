@@ -5,7 +5,7 @@ name: Zero-to-AI Project
 
 on:
   push:
-    branches: [ master, jcranston/assign0/creating-assign0-and-project-docs/docs ]
+    branches: [ master, jcranston/assign0/creating-assign0-and-project-docs ]
   pull_request:
     branches: [ master ]
 
@@ -14,27 +14,61 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install Conda
-      uses: s-weigand/setup-conda@v1.0.4
-    - name: Create Assign0 Conda Environment
+    - uses: goanpeca/setup-miniconda@v1
+      with:
+        auto-update-conda: true
+# for some other day:
+#        with:
+#          auto-update-conda: true
+#          auto-activate-base: false
+#          miniconda-version: 'latest'
+#          python-version: ${{ matrix.python-version }}
+#          environment-file: environment.yml
+#          activate-environment: jupytext-dev
+#    - name: Install Conda
+#      run: |
+#        apk add curl
+#        apk add bash
+#        curl -o /opt/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+#        /bin/bash /opt/miniconda.sh -f -b -p /opt/miniconda
+#        ln -s /opt/miniconda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
+#        echo ". /opt/miniconda/etc/profile.d/conda.sh" >> ~/.bashrc
+#        echo "conda activate base" >> ~/.bashrc
+#      env:
+#        PATH: /opt/anaconda/bin:$PATH
+    - name: Create assign0 Conda Environment
+      shell: bash -l {0}
       run: |
         make conda-env-assign0
+        conda init bash
+        source ~/.bashrc
         conda activate assign0
       working-directory: ./python
     - name: Create Python Paths
+      shell: bash -l {0}
       run: |
-        make make-pth
-      working-directory: ./python      
+        pwd
+        echo "::set-env name=PYTHONPATH::/home/runner/work/zero-to-ai/zero-to-ai/python"
+        echo "/home/runner/work/zero-to-ai/zero-to-ai/python" >> /usr/share/miniconda/envs/assign0/lib/python3.7/site-packages/my.pth
+      working-directory: ./python
     - name: Compile Documentation
+      shell: bash -l {0}
       run: |
-        make docs
-      working-directory: ./python                  
+        echo "PYTHONPATH: ${PYTHONPATH}"
+        conda run -n assign0 conda list
+        conda run -n assign0 make docs
+      working-directory: ./python
     - name: Linter
+      shell: bash -l {0}
       run: |
-        make lint
+        echo "PYTHONPATH: ${PYTHONPATH}"
+        conda run -n assign0 make lint
       working-directory: ./python
     - name: Run Assign0 Tests
+      shell: bash -l {0}
       run: |
-        make test-assign0
-      working-directory: ./python      
-
+        echo "PYTHONPATH: ${PYTHONPATH}"
+        pwd
+        printenv|grep -i "python"
+        conda run -n assign0 make test-assign0 PYTHONPATH=/home/runner/work/zero-to-ai/zero-to-ai/python
+      working-directory: ./python
