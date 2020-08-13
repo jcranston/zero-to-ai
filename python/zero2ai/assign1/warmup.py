@@ -29,7 +29,7 @@ def are_lists_equal(arr1, arr2):
         if arr1[i] != arr2[i]:
             return False
 
-    return True;
+    return True
 
 
 def find_min_idx(arr):

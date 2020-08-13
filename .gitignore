@@ -1,6 +1,6 @@
 # Testing
 .hypothesis
-.coverage*
+python/.coverage
 coverage_html_report
 
 # Notebooks

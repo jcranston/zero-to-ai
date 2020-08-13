@@ -1,48 +1,82 @@
 .. _index-label:
 
-Welcome to Zero to AI
-=====================
+Zero to AI Assignment Documentation
+===================================
+
+Prerequisites
+~~~~~~~~~~~~~
+
+Please follow all the installation instructions outlined in
+"Getting Started as a Student" before following the assignment documentation
+here.
 
 .. toctree::
-   :maxdepth: 3
-   :caption: Documentation
+   :maxdepth: 2
+   :caption: Assignment Documentation
 
-   setup/index
-   assignments/index
+   assignments/assign0/assign0
+   assignments/assign1/assign1
 
-Zero to AI is an educational python project designed to teach the basics of
-working in unix as well as writing python for those that have never done either.
-The project culminates in implementing some AI algorithms.
+Creating Assignment Conda Environments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This course is developed from the "ground up", meaning that I will be writing
-documentation as I write assignments while working with students of the course
-directly. I intend this for this course to not so much stand on its own in
-isolation (though if it can do so, that's fantastic). Rather, I intend to use
-the materials in this project in conjunction with one-on-one face time
-interaction. Not only do I value face-to-face collaboration, but it also helps
-give me direct insight into how to best tweak the materials here to best serve
-students.
+Note: if your shell is not recognizing the ``conda`` executable, you can
+issue a ``source ~/.bash_profile`` which will add ``conda`` as a target in
+your ``PATH`` bash variable.
 
-This course assumes no formal background in coding, computer science, linear
-algebra, or statistics. The assignments are meant to "hand-hold" through
-specially curated projects that draw from educational moments in a standard
-computer science curriculum, as well as key elements from linear algebra and
-statistics courses. Ultimately, working in artificial intelligence requires a
-fluency between the right tools, computer science fundamentals, and statistics
-in a multivariate case.
+To create the conda environment necessary to complete ``assignN`` (i.e. for
+``assign0``, ``assign1``, etc), switch to the ``zero-to-ai/python`` directory
+and execute:
 
-Specifically, we'll learn the following concepts together:
+.. code-block:: bash
 
-- what an operating system (OS), including file systems and syscalls
-- what the difference between a shell and terminal is
-- what the difference between Unix, Linux, macOS, and Darwin are
-- a brief history into the development of "Unix-Like" operating systems
-- POSIX compliance
-- the basics of python and the difference between an interpreted language and a compiled language
-- the basics of C, x86, the stack, heap, disk, and the GNU Compiler Collection (``gcc``)
-- basic POSIX-shell directives like ``pwd``, ``mkdir``, etc.
-- an introduction to networking including ``curl``, ``ssh``, ``scp``, etc.
-- uniform resource locators (URLs) and the basic concepts behind the modern-day cloud, including what an API is, REST, HTTP(S), and IP
-- python types, variables, assignments
-- control flow as introduced via the python language spec and parallels to C-like languages
-- ... TODO fill the rest out later
+    conda env create -f conf/assignN-deps.yml
+
+replacing ``assignN`` with your specific assignment. Alternately, from the
+same ``zero-to-ai/python`` directory you can issue the ``make`` target:
+
+.. code-block:: bash
+
+    make conda-env-assignN
+
+which will create the conda environment for you (again, replace ``assignN``
+with your specific assignment).
+
+Once you have created the conda environment for your specific environment,
+you can activate it using:
+
+.. code-block:: bash
+
+    conda activate assignN
+
+Refer to the conda
+`cheat sheet <https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf>`_
+for other conda operations.
+
+Building the Assignment Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+From ``~/sandbox/zero-to-ai/python``, issue:
+
+.. code-block:: bash
+
+    make docs
+
+Open the documentation (HTML files) in your browser by issuing:
+
+.. code-block:: bash
+
+    open ../docs/_build/html/index.html
+
+Destroying the Assignment Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+From ``~/sandbox/zero-to-ai/python``, issue:
+
+.. code-block:: bash
+
+    make docs-clean
+
+This will destroy all the HTML files generated from ``make docs``. You can
+always rebuild the documentation.
+

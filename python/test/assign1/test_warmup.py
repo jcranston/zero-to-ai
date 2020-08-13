@@ -8,6 +8,7 @@ from zero2ai.assign0.warmup import approx_e_with_exponent
 from zero2ai.assign0.warmup import are_lists_equal
 from zero2ai.assign0.warmup import swap_min_max
 
+
 def test_approx_e_with_exponent():
     '''
     Here is a resource for the contents of this unit test:
@@ -30,32 +31,32 @@ def test_approx_e_with_exponent():
 def test_are_lists_equal_positive_examples():
     arr1 = [2, 7, -1, -8, 7]
     arr2 = [2, 7, -1, -8, 7]
-    assert are_lists_equal(arr1, arr2) == True
+    assert are_lists_equal(arr1, arr2)
 
     arr1 = [1]
     arr2 = [1]
-    assert are_lists_equal(arr1, arr2) == True
+    assert are_lists_equal(arr1, arr2)
 
     arr1 = []
     arr2 = []
-    assert are_lists_equal(arr1, arr2) == True
+    assert are_lists_equal(arr1, arr2)
 
 
 def test_are_lists_equal_negative_examples():
     arr1 = [2, 7, 1, 8, 7]
     arr2 = [2, 7, 1, 8, 8]
-    assert are_lists_equal(arr1, arr2) == False
+    assert not are_lists_equal(arr1, arr2)
 
     arr1 = []
     arr2 = [1]
-    assert are_lists_equal(arr1, arr2) == False
+    assert not are_lists_equal(arr1, arr2)
 
     arr1 = [3, 1, 4]
     arr2 = [3, 1, 4, -1, -5, 9]
-    assert are_lists_equal(arr1, arr2) == True
+    assert not are_lists_equal(arr1, arr2)
 
 
-def test_swap_min_max(arr):
+def test_swap_min_max():
     input = [3, 1, 4, 1, 5, 9, 2]
     swapped = swap_min_max(input)
-    assert are_lists_equal()
+    assert are_lists_equal(input, swapped)

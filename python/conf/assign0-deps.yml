@@ -1,7 +1,7 @@
+name: assign0
 channels:
   - defaults
   - conda-forge
-
 dependencies:
   - flake8 # for the `make lint` target to run
   - nbsphinx # used for sphinx docs
@@ -14,4 +14,5 @@ dependencies:
   - sphinx # used for sphinx docs
   - pip
   - pip:
-      - sphinx_rtd_theme # this is the only dependency we'll install from pip
+      - sphinx_rtd_theme
+      - stanfordkarel
