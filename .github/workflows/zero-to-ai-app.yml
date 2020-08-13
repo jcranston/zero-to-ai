@@ -1,0 +1,40 @@
+# This workflow will install conda, create a conda environment for assign0, create Python paths, compile documentation, and run the linter and tests.
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Zero-to-AI Project
+
+on:
+  push:
+    branches: [ master, jcranston/assign0/creating-assign0-and-project-docs/docs ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Conda
+      uses: s-weigand/setup-conda@v1.0.4
+    - name: Create Assign0 Conda Environment
+      run: |
+        make conda-env-assign0
+        conda activate assign0
+      working-directory: ./python
+    - name: Create Python Paths
+      run: |
+        make make-pth
+      working-directory: ./python      
+    - name: Compile Documentation
+      run: |
+        make docs
+      working-directory: ./python                  
+    - name: Linter
+      run: |
+        make lint
+      working-directory: ./python
+    - name: Run Assign0 Tests
+      run: |
+        make test-assign0
+      working-directory: ./python      
+
